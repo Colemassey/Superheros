@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<body>
+    <div class="row mx-1 my-4">
+        <div class="col-md-6">
+                <h2>{{single_hero.name}}</h2>
+                   <p>Alter Ego: {{single_hero.alter_ego}}</p>
+                    <p>Primary Ability: {{single_hero.primary_ability}}</p>
+                    <p>Secondary Ability: {{single_hero.secondary_ability}}</p>
+                    <p>Catch Phrase: {{single_hero.catch_phrase}}</p>
+        </div>
+    </div>
+    <a href="{% url 'superheroes:edit' hero_id %}">Edit Hero</a>
+    <a href="{% url 'superheroes:delete' hero_id %}">Delete Hero</a>
+    <a href="{% url 'superheroes:index' %}">Home</a>
+</body>
+</html>
