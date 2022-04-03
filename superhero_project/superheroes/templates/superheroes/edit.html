@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Edit Hero</title>
+</head>
+<body>
+    <nav>
+        <a href="#">Superhero Maker</a>
+        <ul>
+            <li><a href="{% url 'superheroes:create' %}">New Hero</a></li>
+        </ul>
+    </nav>
+    <form action="{% url 'superheroes:edit' hero_id=hero_id %}" method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name" id="name" value="{{single_hero.name}}" ><br />
+        Alter Ego: <input type="text" name="alter_ego" id="alter_ego" value="{{single_hero.alter_ego}}"><br />
+        Primary Ability: <input type="text" name="primary" id="primary" value="{{single_hero.primary_ability}}"><br />
+        Secondary Ability: <input type="text" name="secondary" id="secondary" value="{{single_hero.secondary_ability}}"><br />
+        Catchphrase: <input type="text" name="catchphrase" id="catchphrase" value="{{single_hero.catch_phrase}}"><br />
+        <button class="btn btn-primary" type="submit">Confirm Edit</button>
+    </form>
+    <a href="{% url 'superheroes:edit' hero_id %}">Edit Hero</a>
+    <a href="{% url 'superheroes:delete' hero_id %}">Delete Hero</a>
+    <a href="{% url 'superheroes:index' %}">Home</a>
+</body>
+</html>

@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Details</title>
 </head>
 <body>
+    <nav>
+        <a href="#">Superhero Maker</a>
+        <ul>
+            <li><a href="{% url 'superheroes:create' %}">New Hero</a></li>
+        </ul>
+    </nav>
     <div class="row mx-1 my-4">
         <div class="col-md-6">
                 <h2>{{single_hero.name}}</h2>
@@ -16,8 +23,6 @@
                     <p>Catch Phrase: {{single_hero.catch_phrase}}</p>
         </div>
     </div>
-    <a href="{% url 'superheroes:edit' hero_id %}">Edit Hero</a>
-    <a href="{% url 'superheroes:delete' hero_id %}">Delete Hero</a>
-    <a href="{% url 'superheroes:index' %}">Home</a>
+
 </body>
 </html>
