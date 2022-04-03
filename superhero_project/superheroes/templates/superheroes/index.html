@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,18 +29,22 @@
         <h1>Welcome to Superhero Maker!</h1>
     </div>
 
-    
+    <div class="row justify-content-center" style="align-items: center;">
+        <img src="/static\superheroes\images\strawhats.jpeg" alt="Strawhats"
+        width="900"
+        height="500"
+        >
+    </div>
 
     <div class="container" style="text-align: center; margin-top: 4em;">
         <h2>Hero Roster:</h2>
     </div>
 
-    <div class="container" style="align-items: center;">
-
+    <div class="container" style="text-align: center;">
         <ul class="list-group list-group-flush">
             {% for hero in all_heroes %}
             <li class="list-group-item">
-                <div style="margin: 1em; margin-left: 30em; align-items: center;">
+                <div style="margin-top: 1em; align-items: center;">
                     <h2>{{hero.name}}</h2>
                 </div>
                 <div class="btn-group" role="group" style="width: 1070px;">
@@ -51,9 +57,6 @@
             </li>
             {% endfor %}
         </ul>
-    </div>
-    <div>
-        <a href="{% url 'superheroes:create' %}" class="btn btn-primary" role="button">Add New Hero</a>
     </div>
 
 </body>

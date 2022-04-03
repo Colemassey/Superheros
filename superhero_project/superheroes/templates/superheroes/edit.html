@@ -17,16 +17,33 @@
             </div>
         </nav>
     </header>
-    
-    <form action="{% url 'superheroes:edit' hero_id=hero_id %}" method="post">
-        {% csrf_token %}
-        Name: <input type="text" name="name" id="name" value="{{single_hero.name}}" ><br />
-        Alter Ego: <input type="text" name="alter_ego" id="alter_ego" value="{{single_hero.alter_ego}}"><br />
-        Primary Ability: <input type="text" name="primary" id="primary" value="{{single_hero.primary_ability}}"><br />
-        Secondary Ability: <input type="text" name="secondary" id="secondary" value="{{single_hero.secondary_ability}}"><br />
-        Catchphrase: <input type="text" name="catchphrase" id="catchphrase" value="{{single_hero.catch_phrase}}"><br />
-        <button class="btn btn-primary" type="submit">Confirm Edit</button>
-    </form>
+
+    <div class="row justify-content-center" style="margin-top: 5em; text-align: center;">
+        <form action="{% url 'superheroes:edit' hero_id=hero_id %}" method="post">
+            {% csrf_token %}
+            <div class="mb-1">
+                <label class="form-label">Name:</label>
+                <input class="form-control" type="text" name="name" id="name"><br />
+              </div>
+              <div class="mb-1">
+                <label class="form-label">Alter Ego:</label>
+                <input class="form-control" type="text" name="alter_ego" id="alter_ego"><br />
+              </div>
+              <div class="mb-1">
+                <label class="form-label">Primary Ability:</label>
+                <input class="form-control" type="text" type="text" name="primary" id="primary"><br />
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Primary Ability:</label>
+                <input class="form-control" type="text" name="secondary" id="secondary"><br />
+            </div>
+            <div class="mb-1">
+                <label class="form-label">Catchphrase:</label>
+                <input class="form-control" type="text" name="catchphrase" id="catchphrase"><br />
+            </div>
+            <button class="btn btn-primary" type="submit">Confirm Edit</button>
+        </form>
+    </div>
     <a href="{% url 'superheroes:edit' hero_id %}">Edit Hero</a>
     <a href="{% url 'superheroes:delete' hero_id %}">Delete Hero</a>
     <a href="{% url 'superheroes:index' %}">Home</a>
