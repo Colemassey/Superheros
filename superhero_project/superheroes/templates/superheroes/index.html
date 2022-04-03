@@ -11,33 +11,51 @@
 </head>
 
 <body>
+
     <header>
-        <nav>
-            <a href="#">Superhero Maker</a>
-            <ul>
-                <li><a href="{% url 'superheroes:create' %}">New Hero</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"
+            style="position: fixed; top: 0; left: 0; z-index: 9999; width: 100%; height: 50px;">
+            <div class="container-fluid">
+                <a href="{% url 'superheroes:index' %}" class="btn btn-primary" role="button">Home</a>
+                <a>Superhero<small class="text-muted">Maker</small></a>
+                <a href="{% url 'superheroes:create' %}" class="btn btn-primary" role="button">New Hero</a>
+            </div>
         </nav>
     </header>
-    <div class="form-group">
-        <h1>List of Heroes</h1>
+
+    <div class="container" style="text-align: center; margin-top: 4em;">
+        <h1>Welcome to Superhero Maker!</h1>
+    </div>
+
+    
+
+    <div class="container" style="text-align: center; margin-top: 4em;">
+        <h2>Hero Roster:</h2>
+    </div>
+
+    <div class="container" style="align-items: center;">
+
+        <ul class="list-group list-group-flush">
+            {% for hero in all_heroes %}
+            <li class="list-group-item">
+                <div style="margin: 1em; margin-left: 30em; align-items: center;">
+                    <h2>{{hero.name}}</h2>
+                </div>
+                <div class="btn-group" role="group" style="width: 1070px;">
+                    <a href="{% url 'superheroes:detail' hero.id %}" class="btn btn-primary" role="button">Hero
+                        Details</a>
+                    <a href="{% url 'superheroes:edit' hero.id %}" class="btn btn-primary" role="button">Edit Hero</a>
+                    <a href="{% url 'superheroes:delete' hero.id %}" class="btn btn-primary" role="button">Delete
+                        hero</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
     <div>
-        <table class="table">
-            <tbody>
-                {% for hero in all_heroes %}
-                <tr>
-                    <h2>{{hero.name}} - <a href="{% url 'superheroes:detail' hero.id %}">Click for Details</h2>
-                </tr>
-                <tr><a href="{% url 'superheroes:edit' hero.id %}">Edit Hero</a></tr>
-                <tr><a href="{% url 'superheroes:delete' hero.id %}">Delete hero</a></tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <a href="{% url 'superheroes:create' %}" class="btn btn-primary" role="button">Add New Hero</a>
     </div>
-    <div>
-        <a href="{% url 'superheroes:create' %}">Add New Hero</a>
-    </div>
+
 </body>
 
 </html>

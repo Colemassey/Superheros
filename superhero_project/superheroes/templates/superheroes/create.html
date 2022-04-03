@@ -9,12 +9,16 @@
     <title>Create New Hero</title>
 </head>
 <body>
-    <nav>
-        <a href="#">Superhero Maker</a>
-        <ul>
-            <li><a href="{% url 'superheroes:create' %}">New Hero</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; top: 0; left: 0; z-index: 9999; width: 100%; height: 50px;">
+            <div class="container-fluid">
+                <a href="{% url 'superheroes:index' %}" class="btn btn-primary" role="button">Home</a>
+                <a>Superhero<small class="text-muted">Maker</small></a>
+                <a href="{% url 'superheroes:create' %}" class="btn btn-primary" role="button">New Hero</a>
+            </div>
+        </nav>
+    </header>
+    
     <form action="{% url 'superheroes:create' %}" method="post">
         {% csrf_token %}
         Name: <input type="text" name="name" id="name"><br />
@@ -22,8 +26,7 @@
         Primary Ability: <input type="text" name="primary" id="primary"><br />
         Secondary Ability: <input type="text" name="secondary" id="secondary"><br />
         Catchphrase: <input type="text" name="catchphrase" id="catchphrase"><br />
-        <input type="submit" value="Add!">
+        <button class="btn btn-primary" type="submit">Add!</button>
     </form>
-    <a href="{% url 'superheroes:index' %}">Home</a>
 </body>
 </html>
